@@ -11,7 +11,7 @@ import Login from './pages/login/Login';
 
 function App() {
   return (
-    <>
+    <div className="page-container">
       <NavBar/>
       <div className="content">
         <Routes>
@@ -24,7 +24,7 @@ function App() {
         </Routes>
       </div>
       <Footer/>
-    </>
+    </div>
   );
 }
 
