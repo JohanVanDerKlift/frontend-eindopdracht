@@ -1,0 +1,93 @@
+.navbar-container {
+    display: flex;
+    height: 112px;
+    background-color: var(--color-red);
+    color: var(--color-text-light);
+}
+
+.navbar-inner-container {
+    display: flex;
+    margin: 0 auto;
+    flex-basis: 1200px;
+
+}
+
+.navbar-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.navbar-logo img {
+    align-items: center;
+}
+
+.navbar-upper-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3.1em;
+    padding-inline: 2em;
+    margin: auto;
+    width: 100%;
+    height: 50%;
+}
+
+.navbar-upper-container img {
+    height: 40px;
+}
+
+.navbar-lower-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: 50%;
+}
+
+.navbar-lower-container ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar-lower-container li {
+    padding-inline: 1.5em;
+}
+
+.navbar-lower-container img {
+ height: 40px;
+}
+
+.nav-links {
+    font-family: 'Faster One', sans-serif;
+    font-size: 1.5em;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons button {
+    background-color: var(--color-white);
+    color: var(--color-red);
+    font-size: 1.25em;
+    width: 106px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+}
+
+.nav-buttons button:hover {
+    background-color: var(--color-red);
+    color: var(--color-text-light);
+    border: 3px solid var(--color-white);
+}
