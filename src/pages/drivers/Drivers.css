@@ -1,3 +1,10 @@
+.drivers-header {
+    text-align: center;
+    font-family: "Faster One", sans-serif;
+    font-size: 3em;
+    padding-block: 1em;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
