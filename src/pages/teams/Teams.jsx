@@ -34,17 +34,6 @@ function Teams() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  function getImg(url) {
-    const img = new Image();
-    img.onload = function () {
-      return <img src={url} alt="Team logo"/>;
-    };
-    img.onerror = function () {
-      return <img src={noImageAvailable} alt="Not available"/>;
-    };
-    img.src = url;
-  }
-
   return (
     <>
       {loading && <span>Loading...</span>}
@@ -65,7 +54,7 @@ function Teams() {
             {teams.map((team) => {
               return (
                 <tr>
-                  <td>{getImg(team.logo)}</td>
+                  <td><img src={team.logo} alt=""/></td>
                   <td>{team.name}</td>
                   <td>{team.director}</td>
                   <td>{team.world_championships ? team.world_championships : 0}</td>
