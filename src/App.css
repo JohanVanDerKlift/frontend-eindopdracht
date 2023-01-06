@@ -1,0 +1,21 @@
+:root {
+    --color-red: #e10600;
+    --color-white: #fff;
+    --color-blue: #071D49;
+    --color-text-dark: #000;
+    --color-text-light: #fff;
+    --color-backround-table-blue: rgba(7, 29, 73, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+}
