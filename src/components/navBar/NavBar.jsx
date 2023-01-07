@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 import './NavBar.css'
 import logo from '../../assets/F1-logo.png';
 import fiaLogo from '../../assets/fia_logo.png'
@@ -6,7 +7,7 @@ import userIcon from '../../assets/user-icon.png'
 
 function NavBar(props) {
   return (
-    <div className="navbar-container">
+    <nav className="navbar-container">
       <div className="navbar-inner-container">
         <div className="navbar-logo"><img src={logo} alt="F1 logo"/></div>
         <div className="navbar-content-container">
@@ -16,9 +17,21 @@ function NavBar(props) {
           </div>
           <div className="navbar-lower-container">
             <ul className="nav-links">
-              <li>Drivers</li>
-              <li>Teams</li>
-              <li>Races</li>
+              <li>
+                <NavLink
+                  className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                  to="/drivers">Drivers</NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                  to="/teams">Teams</NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive }) => isActive ? 'active-menu-link' : 'default-menu-link'}
+                  to="/races">Races</NavLink>
+              </li>
             </ul>
             <ul className="nav-buttons">
               <li>
@@ -33,7 +46,7 @@ function NavBar(props) {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

@@ -18,10 +18,8 @@ function Drivers() {
             "x-apisports-key": "2f029cd04292f27980387238737fd319",
           }
         })
-        // const response = await axios.get('https://jsonplaceholder.typicode.com/users');
         console.log(response.data.response);
         setDrivers(response.data.response);
-        // console.log(drivers);
       } catch (e) {
         console.error(e);
         setError(true);

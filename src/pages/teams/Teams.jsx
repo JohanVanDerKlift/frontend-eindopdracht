@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './Teams.css';
 import axios from "axios";
-import noImageAvailable from '../../assets/No_image_available.svg.png'
 
 function Teams() {
   const [teams, setTeams] = useState();

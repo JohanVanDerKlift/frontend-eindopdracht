@@ -92,3 +92,15 @@
     color: var(--color-text-light);
     border: 3px solid var(--color-white);
 }
+
+.default-menu-link {
+    text-decoration: none;
+    color: var(--color-white);
+    border-bottom: none;
+}
+
+.active-menu-link {
+    text-decoration: none;
+    color: var(--color-white);
+    border-bottom: 4px solid var(--color-white);
+}
