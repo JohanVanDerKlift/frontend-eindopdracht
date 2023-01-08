@@ -1,41 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './Drivers.css';
 import axios from "axios";
+import useFetch from "../../hooks/useFetch";
 
 function Drivers() {
-  const [drivers, setDrivers] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function fetchDrivers() {
-      setLoading(true);
-      try {
-        setError(false);
-        const response = await axios.get("https://v1.formula-1.api-sports.io/rankings/drivers?season=2022", {
-          headers: {
-            "x-rapidapi-host": "v1.formula-1.api-sports.io",
-            "x-apisports-key": "2f029cd04292f27980387238737fd319",
-          }
-        })
-        console.log(response.data.response);
-        setDrivers(response.data.response);
-      } catch (e) {
-        console.error(e);
-        setError(true);
-      }
-      setLoading(false);
-    }
-
-    void fetchDrivers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+  const { data: drivers, loading, error } = useFetch({ endpoint: 'rankings/drivers', keys: '?season=2022'})
   return (
     <>
       {loading && <span>Loading...</span>}
       {error && <span>An error occurred while loading the data</span>}
       <h1 className="drivers-header">Drivers</h1>
+      <h2 className="season-header">Season: 2022</h2>
       <div className="container">
         {drivers &&
           <table className="table table-drivers">

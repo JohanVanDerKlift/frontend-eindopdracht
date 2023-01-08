@@ -1,3 +1,5 @@
+@import "assets/fonts/fonts.css";
+
 :root {
     --color-red: #e10600;
     --color-white: #fff;
@@ -12,8 +14,6 @@
     padding: 0;
     margin: 0;
 }
-
-@import "assets/fonts/fonts.css";
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -71,4 +71,11 @@ body {
 .form-button:hover::after,
 .form-button:focus::after{
     transform: scale(1.32, 2);
+}
+
+.season-header {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 1em;
 }

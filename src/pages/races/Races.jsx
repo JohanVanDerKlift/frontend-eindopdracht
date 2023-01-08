@@ -1,42 +1,51 @@
-import React, {useEffect, useState} from 'react';
+// import React, {useEffect, useState} from 'react';
 import './Races.css';
-import axios from "axios";
+import useFetch from "../../hooks/useFetch";
+import dateFormat from "../../helpers/dateFormat";
 
 function Races() {
-  const [races, setRaces] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    async function fetchDrivers() {
-      setLoading(true);
-      try {
-        setError(false);
-        const response = await axios.get("https://v1.formula-1.api-sports.io/races?season=2022", {
-          headers: {
-            "x-rapidapi-host": "v1.formula-1.api-sports.io",
-            "x-apisports-key": "2f029cd04292f27980387238737fd319",
-          }
-        })
-        console.log(response.data.response);
-        const mainRaces = response.data.response.filter((race) => {
-          return race.type === 'Race';
-        });
-        setRaces(mainRaces);
-      } catch (e) {
-        console.error(e);
-        setError(true);
-      }
-      setLoading(false);
-    }
-
-    void fetchDrivers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  function dateFormat(date) {
-    return new Date(date).toDateString().slice(4);
+  const {data, loading, error} = useFetch({endpoint: 'races', keys: '?season=2022'});
+  let races;
+  console.log(data);
+  if (data) {
+    races = data.filter((race) => {
+      return race.type === 'Race';
+    });
   }
+  // const [races, setRaces] = useState();
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(false);
+
+  // useEffect(() => {
+  //   async function fetchDrivers() {
+  //     setLoading(true);
+  //     try {
+  //       setError(false);
+  //       const response = await axios.get("https://v1.formula-1.api-sports.io/races?season=2022", {
+  //         headers: {
+  //           "x-rapidapi-host": "v1.formula-1.api-sports.io",
+  //           "x-apisports-key": "2f029cd04292f27980387238737fd319",
+  //         }
+  //       })
+  //       console.log(response.data.response);
+  //       const mainRaces = response.data.response.filter((race) => {
+  //         return race.type === 'Race';
+  //       });
+  //       setRaces(mainRaces);
+  //     } catch (e) {
+  //       console.error(e);
+  //       setError(true);
+  //     }
+  //     setLoading(false);
+  //   }
+  //
+  //   void fetchDrivers();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
+  //
+  // function dateFormat(date) {
+  //   return new Date(date).toDateString().slice(4);
+  // }
 
   return (
     <>
