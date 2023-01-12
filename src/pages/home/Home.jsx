@@ -4,9 +4,11 @@ import useFetch from "../../hooks/useFetch";
 import dateFormat from "../../helpers/dateFormat";
 
 function Home(props) {
-  const {data: race, loading, error} = useFetch({endpoint: 'races', keys: '?last=1'})
-  // const {data: results} = reFetch({ endpoint: 'rankings/races', keys: `?race=${race[0].id}`})
-  // console.log(results);
+  const {data: race, loading, error, reFetch} = useFetch({endpoint: 'races', keys: '?last=1'})
+  // if (race) {
+  //   const {reData: results} = reFetch({reFetchEndpoint: 'rankings/races', reFetchKeys: `?race=${race[0].id}`})
+  //   console.log(results);
+  // }
 
   return (
     <>

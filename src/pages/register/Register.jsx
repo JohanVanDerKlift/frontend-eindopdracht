@@ -1,12 +1,26 @@
 import React from 'react';
 import './Register.css';
 import {useForm} from "react-hook-form";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Register(props) {
   const {register, handleSubmit, formState: {errors}} = useForm();
+  const navigate = useNavigate();
 
   function handleFormSubmit(data) {
     console.log(data);
+    void signup(data);
+  }
+
+  async function signup(data) {
+    try {
+      const response = await axios.post('http://localhost:3000/register', data);
+      console.log(response.data);
+      navigate('/login');
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (
@@ -14,12 +28,12 @@ function Register(props) {
       <h1 className="title">Register</h1>
       <div className="container form-container">
         <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
-          <label htmlFor="name-field">Name
+          <label htmlFor="name-field">Username
           </label>
           <input
             type="text"
             id="name-field"
-            {...register("name", {
+            {...register("username", {
               required: {
                 value: true,
                 message: 'Dit veld is verplicht'

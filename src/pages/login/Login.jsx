@@ -1,12 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Login.css';
 import {useForm} from "react-hook-form";
+import axios from "axios";
+import {AuthContext} from "../../context/AuthContext";
 
 function Login(props) {
   const {register, handleSubmit, formState: {errors}} = useForm();
+  const {login} = useContext(AuthContext);
 
   function handleFormSubmit(data) {
     console.log(data);
+    void signIn(data);
+  }
+
+  async function signIn(data) {
+    try {
+      const response = await axios.post('http://localhost:3000/login', data);
+      console.log(response.data);
+      login(response.data.accessToken);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (
@@ -44,13 +58,6 @@ function Login(props) {
             })}
           />
           {errors.password && <p>{errors.password.message}</p>}
-          <label htmlFor="password-confirm-field">Confirm password
-          </label>
-          <input
-            type="text"
-            name="password-confirm"
-            id="password-confirm-field"
-          />
           <button className="button form-button" type="submit">
             Login
           </button>

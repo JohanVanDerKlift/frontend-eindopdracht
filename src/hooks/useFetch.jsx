@@ -3,6 +3,7 @@ import axios from "axios";
 
 function UseFetch({endpoint, keys}) {
   const [data, setData] = useState(null);
+  const [reData, setReData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -32,7 +33,28 @@ function UseFetch({endpoint, keys}) {
     void fetchData();
   }, [endpoint, keys])
 
-  return {data, loading, error};
+  const reFetch = (reFetchEndpoint, reFetchKeys) => {
+    async function reFetchData() {
+      setLoading(true);
+      try {
+        setError(false);
+        const response = await axios.get(url + reFetchEndpoint + reFetchKeys, params);
+        console.log(response.data.response);
+        setReData(response.data.response);
+      } catch (e) {
+        console.error(e);
+        setError(true);
+      }
+      setLoading(false);
+    }
+
+    void reFetchData();
+
+    return {reData, loading, error};
+  }
+
+  return {data, loading, error, reFetch};
+
 }
 
 export default UseFetch;
