@@ -7,6 +7,7 @@
     --color-text-dark: #444;
     --color-text-light: #fff;
     --color-backround-table-blue: rgba(7, 29, 73, 0.15);
+    --color-background-table-link: rgba(7, 29, 73, 0.5);
 }
 
 * {

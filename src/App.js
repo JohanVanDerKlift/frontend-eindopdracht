@@ -8,6 +8,8 @@ import Teams from './pages/teams/Teams';
 import Races from './pages/races/Races';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
+import Driver from "./pages/driver/Driver";
+import Team from "./pages/team/Team";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path='/races' element={<Races/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/driver/:driverId' element={<Driver/>}/>
+          <Route path='/team/:teamId' element={<Team/>}/>
         </Routes>
       </div>
       <Footer/>

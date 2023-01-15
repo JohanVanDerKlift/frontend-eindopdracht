@@ -1,4 +1,3 @@
-// import React, {useEffect, useState} from 'react';
 import './Races.css';
 import useFetch from "../../hooks/useFetch";
 import dateFormat from "../../helpers/dateFormat";
@@ -12,44 +11,9 @@ function Races() {
       return race.type === 'Race';
     });
   }
-  // const [races, setRaces] = useState();
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(false);
-
-  // useEffect(() => {
-  //   async function fetchDrivers() {
-  //     setLoading(true);
-  //     try {
-  //       setError(false);
-  //       const response = await axios.get("https://v1.formula-1.api-sports.io/races?season=2022", {
-  //         headers: {
-  //           "x-rapidapi-host": "v1.formula-1.api-sports.io",
-  //           "x-apisports-key": "2f029cd04292f27980387238737fd319",
-  //         }
-  //       })
-  //       console.log(response.data.response);
-  //       const mainRaces = response.data.response.filter((race) => {
-  //         return race.type === 'Race';
-  //       });
-  //       setRaces(mainRaces);
-  //     } catch (e) {
-  //       console.error(e);
-  //       setError(true);
-  //     }
-  //     setLoading(false);
-  //   }
-  //
-  //   void fetchDrivers();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
-  //
-  // function dateFormat(date) {
-  //   return new Date(date).toDateString().slice(4);
-  // }
 
   return (
     <>
-      {console.log(races)}
       {loading && <span>Loading...</span>}
       {error && <span>An error occurred while loading the data</span>}
       <h1 className="drivers-header">Races</h1>

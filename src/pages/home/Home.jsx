@@ -2,13 +2,10 @@ import React from 'react';
 import './Home.css';
 import useFetch from "../../hooks/useFetch";
 import dateFormat from "../../helpers/dateFormat";
+import Result from "../../components/result/result";
 
 function Home(props) {
-  const {data: race, loading, error, reFetch} = useFetch({endpoint: 'races', keys: '?last=1'})
-  // if (race) {
-  //   const {reData: results} = reFetch({reFetchEndpoint: 'rankings/races', reFetchKeys: `?race=${race[0].id}`})
-  //   console.log(results);
-  // }
+  const {data: race, loading, error} = useFetch({endpoint: 'races', keys: '?last=1'})
 
   return (
     <>
@@ -31,6 +28,9 @@ function Home(props) {
               </tr>
               </thead>
               <tbody>
+              {race &&
+                <Result value={race[0].id}/>
+              }
               </tbody>
             </table>
           </div>

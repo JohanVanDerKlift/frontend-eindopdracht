@@ -1,6 +1,7 @@
 import React from 'react';
 import './Teams.css';
 import useFetch from "../../hooks/useFetch";
+import {Link} from "react-router-dom";
 
 function Teams() {
   const { data: teams, loading, error } = useFetch({ endpoint: 'rankings/teams', keys: '?season=2022'})
@@ -26,10 +27,10 @@ function Teams() {
             {teams.map((team) => {
               return (
                 <tr>
-                  <td>{team.position}</td>
-                  <td><img src={team.team.logo} alt=""/></td>
-                  <td>{team.team.name}</td>
-                  <td>{team.points}</td>
+                  <td><Link className="link" to={`/team/${team.team.id}`}>{team.position}</Link></td>
+                  <td><Link className="link" to={`/team/${team.team.id}`}><img src={team.team.logo} alt=""/></Link></td>
+                  <td><Link className="link" to={`/team/${team.team.id}`}>{team.team.name}</Link></td>
+                  <td><Link className="link" to={`/team/${team.team.id}`}>{team.points}</Link></td>
                 </tr>
               )
             })}

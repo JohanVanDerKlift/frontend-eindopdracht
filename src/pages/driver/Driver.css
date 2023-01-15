@@ -1,0 +1,29 @@
+.driver-container {
+    margin-top: 3em;
+    gap: 6em;
+    padding: 3em;
+}
+
+.driver-image {
+    height: 350px;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: flex-start;
+}
+
+.driver-name {
+    font-size: 3em;
+}
+
+.driver-info {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.driver-info p {
+    padding: 0.6em 0;
+}

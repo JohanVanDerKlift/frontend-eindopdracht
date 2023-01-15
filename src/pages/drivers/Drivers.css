@@ -24,9 +24,16 @@
 .table tr {
     height: 20px;
 }
+.table tr:hover {
+    background-color: var(--color-background-table-link);
+}
 
 .table tr:nth-child(even) {
     background-color: var(--color-backround-table-blue);
+}
+
+.table tr:nth-child(even):hover {
+    background-color: var(--color-background-table-link);
 }
 
 .table td {
@@ -37,4 +44,16 @@
 
 img {
     height: 50px;
+}
+
+.link {
+    all: unset;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.link:hover {
+    cursor: pointer;
 }
