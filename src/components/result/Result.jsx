@@ -1,5 +1,5 @@
 import React from 'react';
-import './result.css';
+import './Result.css';
 import useFetch from "../../hooks/useFetch";
 
 function Result({raceId}) {
@@ -8,7 +8,16 @@ function Result({raceId}) {
   console.log(result);
 
   return (
-    <div></div>
+    <>
+
+      {result && result.map((driver) => (
+        <tr>
+          <td>{driver.position}</td>
+          <td>{driver.driver.name}</td>
+          <td>{driver.time}</td>
+        </tr>
+      ))}
+    </>
   );
 }
 

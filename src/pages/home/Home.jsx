@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 import useFetch from "../../hooks/useFetch";
 import dateFormat from "../../helpers/dateFormat";
-import Result from "../../components/result/result";
+import Result from "../../components/result/Result";
 
 function Home(props) {
   const {data: race, loading, error} = useFetch({endpoint: 'races', keys: '?last=1'})
@@ -19,18 +19,16 @@ function Home(props) {
             <p className="date">{dateFormat(race[0].date)}</p>
             <h2>{race[0].competition.name}</h2>
             <img src={race[0].circuit.image} alt="Circuit"/>
-            <table>
+            <table className="table table-last-result">
               <thead>
               <tr>
                 <th>Pos</th>
                 <th>Name</th>
-                <th>Points</th>
+                <th>Time</th>
               </tr>
               </thead>
               <tbody>
-              {race &&
-                <Result value={race[0].id}/>
-              }
+                <Result raceId={race[0].id}/>
               </tbody>
             </table>
           </div>

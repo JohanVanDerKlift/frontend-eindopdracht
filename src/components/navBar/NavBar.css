@@ -64,7 +64,7 @@
 }
 
 .navbar-lower-container img {
- height: 40px;
+    height: 40px;
 }
 
 .nav-links {
@@ -75,12 +75,14 @@
 .nav-buttons {
     display: flex;
     align-items: center;
+    gap: 1em;
 }
 
 .nav-buttons button {
     background-color: var(--color-white);
     color: var(--color-red);
     font-size: 1.25em;
+    margin-left: 1em;
     width: 106px;
     height: 30px;
     border: none;
@@ -103,4 +105,40 @@
     text-decoration: none;
     color: var(--color-white);
     border-bottom: 4px solid var(--color-white);
+}
+
+.dropdown-button {
+    font-family: 'Faster One', sans-serif;
+    font-size: 1em;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 15px;
+
+    background-color: var(--color-red);
+    padding-block: 1em;
+    border-radius: 0 0 5px 5px;
+    display: none;
+}
+
+.dropdown-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.dropdown-menu:hover {
+    display: block;
 }

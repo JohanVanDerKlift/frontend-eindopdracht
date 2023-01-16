@@ -25,15 +25,18 @@ function NavBar(props) {
           </div>
           <div className="navbar-lower-container">
             <ul className="nav-links">
-              <li>
-                <NavLink
-                  className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                  to="/drivers">Drivers</NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className={({isActive}) => isActive ? 'active-menu-link' : 'default-menu-link'}
-                  to="/teams">Teams</NavLink>
+              <li className="dropdown">
+                <button className="dropdown-button">Standings</button>
+                <div className="dropdown-menu">
+                  <ul>
+                    <li>
+                      <NavLink className={({isActive}) => isActive ? 'active-menu-link dropdown-link' : 'default-menu-link dropdown-link'} to="/drivers">Drivers</NavLink>
+                    </li>
+                    <li>
+                      <NavLink className={({isActive}) => isActive ? 'active-menu-link dropdown-link' : 'default-menu-link dropdown-link'} to="/teams">Teams</NavLink>
+                    </li>
+                  </ul>
+                </div>
               </li>
               <li>
                 <NavLink
