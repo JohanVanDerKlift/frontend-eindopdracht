@@ -1,0 +1,18 @@
+.profile-header {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    padding: 2em;
+}
+
+.profile-container p {
+    font-size: 2em;
+    font-weight: 700;
+}

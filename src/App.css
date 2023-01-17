@@ -24,6 +24,9 @@ body {
 
 .content {
     padding-bottom: 5.25em;
+    background-image: url("./assets/f1-car.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {

@@ -10,6 +10,7 @@ import Register from './pages/register/Register';
 import Login from './pages/login/Login';
 import Driver from "./pages/driver/Driver";
 import Team from "./pages/team/Team";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/driver/:driverId' element={<Driver/>}/>
           <Route path='/team/:teamId' element={<Team/>}/>
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </div>
       <Footer/>

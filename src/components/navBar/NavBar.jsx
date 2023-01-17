@@ -48,8 +48,8 @@ function NavBar(props) {
               <li>
                 {!isAuth &&
                   <>
-                    <button onClick={() => navigate('/register')}>Registreren</button>
-                    <button onClick={() => navigate('/login')}>Log in</button>
+                    <button onClick={() => navigate('/register')}>Register</button>
+                    <button onClick={() => navigate('/login')}>Login</button>
                   </>
                 }
                 {isAuth &&
