@@ -1,17 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Drivers.css';
 import useFetch from "../../hooks/useFetch";
 import {Link} from "react-router-dom";
 
 function Drivers() {
-  const {data: drivers, loading, error} = useFetch({endpoint: 'rankings/drivers', keys: '?season=2022'});
+  const [seasonState, setSeasonState] = useState('2022');
+  const {data: drivers, loading, error} = useFetch({endpoint: 'rankings/drivers', keys: `?season=${seasonState}`});
+  const {data: seasons} = useFetch({endpoint: 'seasons', keys: ''});
+
+  function handleChange(e) {
+    setSeasonState(e.target.value);
+  }
 
   return (
     <>
       {loading && <span>Loading...</span>}
       {error && <span>An error occurred while loading the data</span>}
       <h1 className="drivers-header">Drivers</h1>
-      <h2 className="season-header">Season: 2022</h2>
+      <h2 className="season-header">Season: {seasonState}</h2>
+      <div className="season-select-container">
+        {seasons &&
+          <select className="season-select" value={seasonState} id="seasons-select" onChange={handleChange}>
+            {seasons.map((season) => (
+              <option value={season}>{season}</option>
+            ))}
+          </select>
+        }
+      </div>
       <div className="container">
         {drivers &&
           <table className="table table-drivers">
