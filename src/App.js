@@ -11,6 +11,7 @@ import Login from './pages/login/Login';
 import Driver from "./pages/driver/Driver";
 import Team from "./pages/team/Team";
 import Profile from "./pages/profile/Profile";
+import Race from "./pages/race/Race";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path='/driver/:driverId' element={<Driver/>}/>
           <Route path='/team/:teamId' element={<Team/>}/>
+          <Route path='/race/:raceId' element={<Race/>}/>
           <Route path='/profile' element={<Profile/>}/>
         </Routes>
       </div>

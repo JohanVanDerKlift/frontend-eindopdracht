@@ -43,7 +43,6 @@ function Drivers() {
             {drivers.map((driver) => {
               return (
                 <tr>
-
                     <td><Link className="link" to={`/driver/${driver.driver.id}`}>{driver.position}</Link></td>
                     <td><Link className="link" to={`/driver/${driver.driver.id}`}><img src={driver.driver.image} alt=""/></Link></td>
                     <td><Link className="link" to={`/driver/${driver.driver.id}`}>{driver.driver.name}</Link></td>

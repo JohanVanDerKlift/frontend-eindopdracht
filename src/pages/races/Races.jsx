@@ -2,6 +2,7 @@ import './Races.css';
 import useFetch from "../../hooks/useFetch";
 import dateFormat from "../../helpers/dateFormat";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 function Races() {
   const [seasonState, setSeasonState] = useState('2022');
@@ -50,11 +51,11 @@ function Races() {
             {races.map((race) => {
               return (
                 <tr>
-                  <td>{dateFormat(race.date)}</td>
-                  <td>{race.circuit.name}</td>
-                  <td><img src={race.circuit.image} alt=""/></td>
-                  <td>{race.competition.location.country}</td>
-                  <td>{race.laps.total}</td>
+                  <td><Link className="link" to={`/race/${race.id}`}>{dateFormat(race.date)}</Link></td>
+                  <td><Link className="link" to={`/race/${race.id}`}>{race.circuit.name}</Link></td>
+                  <td><Link className="link" to={`/race/${race.id}`}><img src={race.circuit.image} alt=""/></Link></td>
+                  <td><Link className="link" to={`/race/${race.id}`}>{race.competition.location.country}</Link></td>
+                  <td><Link className="link" to={`/race/${race.id}`}>{race.laps.total}</Link></td>
                 </tr>
               )
             })}
