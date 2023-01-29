@@ -33,6 +33,7 @@ function Login(props) {
           <input
             type="email"
             id="email-field"
+            placeholder="Username..."
             {...register("email", {
               required: {
                 value: true,
@@ -50,6 +51,7 @@ function Login(props) {
           <input
             type="password"
             id="password-field"
+            placeholder="Password..."
             {...register("password", {
               required: {
                 value: true,

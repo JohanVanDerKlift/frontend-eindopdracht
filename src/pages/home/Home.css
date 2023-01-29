@@ -1,27 +1,28 @@
-.home-header {
-    text-align: center;
-    font-family: "Faster One", sans-serif;
-    font-size: 3em;
-    padding-block: 1em;
-}
-
-.last-race-container {
+.home-header-container {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
     gap: 2em;
-    padding-block: 2em;
+    margin-top: 2em;
 }
 
-.last-race-container p {
-    font-size: 2em;
-    font-weight: 800;
+.home-header-container h1 {
+    font-size: 3em;
 }
 
-.last-race-container h2 {
-    font-size: 2em;
+.home-header-link {
+    text-decoration: none;
+    color: var(--color-red);
 }
 
-.last-race-container img {
-    height: 15em;
+.news-header {
+    font-size: 2.5em;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
+    max-width: 1600px;
+    gap: 2em;
+    margin: 2em auto;
 }

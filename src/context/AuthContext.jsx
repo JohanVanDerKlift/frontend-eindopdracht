@@ -33,7 +33,7 @@ function AuthContextProvider({children}) {
     localStorage.setItem('token', token);
     const decoded = jwt_decode(token);
 
-    void fetchUser(token, decoded);
+    void fetchUser(token, decoded, '/profile');
   }
 
   async function fetchUser(token, decoded, redirect) {
@@ -48,6 +48,8 @@ function AuthContextProvider({children}) {
       setIsAuth({
         isAuth: true,
         user: {
+          firstname: response.data.firstname,
+          lastname: response.data.lastname,
           username: response.data.username,
           email: response.data.email,
           id: response.data.id,

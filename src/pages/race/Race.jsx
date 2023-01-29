@@ -16,8 +16,11 @@ function Race(props) {
     <>
       {loading && <span>Loading...</span>}
       {error && <span>An error occurred while loading the data</span>}
-      <h1 className="drivers-header">{race[0].circuit.name}</h1>
-      <img className="circuit-image" src={race[0].circuit.image} alt="Circuit"/>
+      {race &&
+        <>
+          <h1 className="drivers-header">{race[0].circuit.name}</h1>
+        </>
+      }
       <div className="slider-container">
         <span>Track time</span>
         <label className="switch" htmlFor="time-switch">

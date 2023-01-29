@@ -9,6 +9,11 @@
     height: 5.25em;
 }
 
+.footer-container a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
 .footer-container h3 {
     color: var(--color-text-light);
     margin: 0 auto;

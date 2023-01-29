@@ -12,6 +12,7 @@ import Driver from "./pages/driver/Driver";
 import Team from "./pages/team/Team";
 import Profile from "./pages/profile/Profile";
 import Race from "./pages/race/Race";
+import LastResult from "./pages/lastResult/LastResult";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/drivers' element={<Drivers/>}/>
           <Route path='/teams' element={<Teams/>}/>
+          <Route path='/Last-result' element={<LastResult/>}/>
           <Route path='/races' element={<Races/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>

@@ -1,0 +1,27 @@
+.home-header {
+    text-align: center;
+    font-family: "Faster One", sans-serif;
+    font-size: 3em;
+    padding-block: 1em;
+}
+
+.last-race-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2em;
+    padding-block: 2em;
+}
+
+.last-race-container p {
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.last-race-container h2 {
+    font-size: 2em;
+}
+
+.last-race-container img {
+    height: 15em;
+}
