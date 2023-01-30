@@ -33,8 +33,8 @@ function Drivers() {
             <thead>
             <tr>
               <th>Pos</th>
-              <th>Name</th>
               <th>Picture</th>
+              <th>Name</th>
               <th>Team</th>
               <th>Points</th>
             </tr>

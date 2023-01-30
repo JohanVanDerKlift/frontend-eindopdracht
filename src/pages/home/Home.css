@@ -21,8 +21,8 @@
 
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30em, 1fr));
-    max-width: 1600px;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+    max-width: 1200px;
     gap: 2em;
     margin: 2em auto;
 }

@@ -18,7 +18,7 @@ function NavBar(props) {
           <div className="navbar-upper-container">
             {isAuth &&
               <Link className="user-link" to='/profile'>
-                <span>{user.username}</span>
+                <span>{user.firstname} {user.lastname}</span>
                 <img src={userIcon} alt="User icon"/>
               </Link>
             }
@@ -69,7 +69,7 @@ function NavBar(props) {
                 }
               </li>
               <li>
-                <a href="http://www.fia.com"><img src={fiaLogo} alt="Fia logo"/></a>
+                <a href="https://www.fia.com"><img src={fiaLogo} alt="Fia logo"/></a>
               </li>
             </ul>
           </div>
