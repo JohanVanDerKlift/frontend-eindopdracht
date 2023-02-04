@@ -19,8 +19,8 @@ function Team(props) {
             <div className="driver-info">
               <p>Basis: {team[0].base}</p>
               <p>Director: {team[0].director}</p>
-              <p>In GP sinds: {team[0].first_team_entry}</p>
-              <p>Kampioenschappen: {team[0].world_championships}</p>
+              <p>First entry: {team[0].first_team_entry}</p>
+              <p>Championships: {team[0].world_championships}</p>
               <p>Motor: {team[0].engine}</p>
             </div>
           </div>

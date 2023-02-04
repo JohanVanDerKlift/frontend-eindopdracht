@@ -12,10 +12,6 @@
     border-collapse: collapse;
 }
 
-.table-drivers {
-
-}
-
 .table th {
     font-size: 1.75em;
     padding-block: 1em;
@@ -39,7 +35,6 @@
 .table td {
     text-align: center;
     font-size: 1.2em;
-    font-weight: 600;
 }
 
 img {
@@ -51,7 +46,7 @@ img {
     text-decoration: none;
     text-align: center;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .link:hover {

@@ -13,24 +13,28 @@ import Team from "./pages/team/Team";
 import Profile from "./pages/profile/Profile";
 import Race from "./pages/race/Race";
 import LastResult from "./pages/lastResult/LastResult";
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContext";
 
 function App() {
+  const {isAuth} = useContext(AuthContext);
+
   return (
     <div className="page-container">
       <NavBar/>
       <div className="content">
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/drivers' element={<Drivers/>}/>
-          <Route path='/teams' element={<Teams/>}/>
-          <Route path='/Last-result' element={<LastResult/>}/>
-          <Route path='/races' element={<Races/>}/>
+          <Route path='/drivers' element={isAuth ? <Drivers/> : <Login/>}/>
+          <Route path='/teams' element={isAuth ? <Teams/> : <Login/>}/>
+          <Route path='/Last-result' element={isAuth ? <LastResult/> : <Login/>}/>
+          <Route path='/races' element={isAuth ? <Races/> : <Login/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
-          <Route path='/driver/:driverId' element={<Driver/>}/>
-          <Route path='/team/:teamId' element={<Team/>}/>
-          <Route path='/race/:raceId' element={<Race/>}/>
-          <Route path='/profile' element={<Profile/>}/>
+          <Route path='/driver/:driverId' element={isAuth ? <Driver/> : <Login/>}/>
+          <Route path='/team/:teamId' element={isAuth ? <Team/> : <Login/>}/>
+          <Route path='/race/:raceId' element={isAuth ? <Race/> : <Login/>}/>
+          <Route path='/profile' element={isAuth ? <Profile/> : <Login/>}/>
         </Routes>
       </div>
       <Footer/>
