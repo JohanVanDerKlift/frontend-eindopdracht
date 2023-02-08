@@ -9,7 +9,7 @@ function AuthContextProvider({children}) {
   const [isAuth, setIsAuth] = useState({
     isAuth: false,
     user: null,
-    status: 'pending',
+    status: 'done',
   });
   const navigate = useNavigate();
 
@@ -31,14 +31,13 @@ function AuthContextProvider({children}) {
 
   function login(token) {
     localStorage.setItem('token', token);
-    const decoded = jwt_decode(token);
 
-    void fetchUser(token, decoded, '/profile');
+    void fetchUser(token, '/profile');
   }
 
-  async function fetchUser(token, decoded, redirect) {
+  async function fetchUser(token, redirect) {
     try {
-      const response = await axios.get(`http://localhost:3000/600/users/${decoded.sub}`, {
+      const response = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
         headers: {
           "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -48,11 +47,10 @@ function AuthContextProvider({children}) {
       setIsAuth({
         isAuth: true,
         user: {
-          firstname: response.data.firstname,
-          lastname: response.data.lastname,
+          id: response.id,
           username: response.data.username,
           email: response.data.email,
-          id: response.data.id,
+          roles: response.data.roles,
         },
         status: 'done',
       });

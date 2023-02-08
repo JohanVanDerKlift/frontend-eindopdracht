@@ -18,7 +18,7 @@ function NavBar(props) {
           <div className="navbar-upper-container">
             {isAuth &&
               <Link className="user-link" to='/profile'>
-                <span>{user.firstname} {user.lastname}</span>
+                <span>{user.username}</span>
                 <img src={userIcon} alt="User icon"/>
               </Link>
             }

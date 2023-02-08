@@ -10,12 +10,18 @@ function Register(props) {
 
   function handleFormSubmit(data) {
     console.log(data);
-    void signup(data);
+    const signupData = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+      role: ["user"],
+    }
+    void signup(signupData);
   }
 
   async function signup(data) {
     try {
-      const response = await axios.post('http://localhost:3000/register', data);
+      const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', data);
       console.log(response.data);
       navigate('/login');
     } catch (e) {
@@ -28,75 +34,30 @@ function Register(props) {
       <h1 className="title">Register</h1>
       <div className="container form-container">
         <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
-          <label htmlFor="firstname-field">First name
+          <label htmlFor="username-field">Username
           </label>
           <input
             type="text"
-            id="firstname-field"
-            placeholder="First name..."
-            {...register("firstname", {
-              required: {
-                value: true,
-                message: 'Dit veld is verplicht'
-              },
-              minLength: {
-                value: 3,
-                message: 'Input moet minimaal 3 karakters bevatten'
-              },
-              maxLength: {
-                value: 20,
-                message: 'Input mag maximaal 20 karakters bevatten'
-              },
-            })
-            }
-          />
-          {errors.firstname && <p>{errors.firstname.message}</p>}
-          <label htmlFor="lastname-field">Last name
-          </label>
-          <input
-            type="text"
-            id="lastname-field"
-            placeholder="Last name..."
-            {...register("lastname", {
-              required: {
-                value: true,
-                message: 'Dit veld is verplicht'
-              },
-              minLength: {
-                value: 3,
-                message: 'Input moet minimaal 3 karakters bevatten'
-              },
-              maxLength: {
-                value: 20,
-                message: 'Input mag maximaal 20 karakters bevatten'
-              },
-            })
-            }
-          />
-          {errors.lastname && <p>{errors.lastname.message}</p>}
-          <label htmlFor="name-field">Username
-          </label>
-          <input
-            type="text"
-            id="name-field"
+            id="username-field"
             placeholder="Username..."
             {...register("username", {
               required: {
                 value: true,
-                message: 'Dit veld is verplicht'
+                message: 'You must specify a valid username'
               },
               minLength: {
-                value: 3,
-                message: 'Input moet minimaal 3 karakters bevatten'
+                value: 6,
+                message: 'Username should be at least 6 characters long'
               },
               maxLength: {
                 value: 20,
-                message: 'Input mag maximaal 20 karakters bevatten'
+                message: 'Username should contain a maximum of 20 characters'
               },
             })
             }
           />
           {errors.username && <p>{errors.username.message}</p>}
+
           <label htmlFor="email-field">Email
           </label>
           <input
@@ -106,11 +67,11 @@ function Register(props) {
             {...register("email", {
               required: {
                 value: true,
-                message: 'Dit veld is verplicht'
+                message: 'You must specify a valid email address'
               },
               pattern: {
                 value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Voldoet niet aan de eisen voor email adres'
+                message: 'Email address not valid'
               }
             })}
           />
@@ -124,7 +85,11 @@ function Register(props) {
             {...register("password", {
               required: {
                 value: true,
-                message: 'You must specify a password'
+                message: 'You must specify a valid password'
+              },
+              minLength: {
+                value: 6,
+                message: 'Password should be at least 6 characters long'
               }
             })}
           />

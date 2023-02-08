@@ -15,7 +15,7 @@ function Login(props) {
 
   async function signIn(data) {
     try {
-      const response = await axios.post('http://localhost:3000/login', data);
+      const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', data);
       console.log(response.data);
       login(response.data.accessToken);
     } catch (e) {
@@ -28,24 +28,20 @@ function Login(props) {
       <h1 className="title">Login</h1>
       <div className="container form-container">
         <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
-          <label htmlFor="email-field">Email
+          <label htmlFor="email-field">Username
           </label>
           <input
-            type="email"
-            id="email-field"
+            type="text"
+            id="username-field"
             placeholder="Username..."
-            {...register("email", {
+            {...register("username", {
               required: {
                 value: true,
-                message: 'Dit veld is verplicht'
-              },
-              pattern: {
-                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Voldoet niet aan de eisen voor email adres'
+                message: 'Please type in your username'
               }
             })}
           />
-          {errors.email && <p>{errors.email.message}</p>}
+          {errors.username && <p>{errors.username.message}</p>}
           <label htmlFor="password-field">Password
           </label>
           <input
@@ -55,7 +51,7 @@ function Login(props) {
             {...register("password", {
               required: {
                 value: true,
-                message: 'Dit veld is verplicht'
+                message: 'Please type in your password'
               }
             })}
           />

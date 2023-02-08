@@ -13,7 +13,7 @@ import Team from "./pages/team/Team";
 import Profile from "./pages/profile/Profile";
 import Race from "./pages/race/Race";
 import LastResult from "./pages/lastResult/LastResult";
-import {useContext} from "react";
+import React, {useContext} from "react";
 import {AuthContext} from "./context/AuthContext";
 
 function App() {
@@ -25,12 +25,12 @@ function App() {
       <div className="content">
         <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/register' element={<Register/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/drivers' element={isAuth ? <Drivers/> : <Login/>}/>
           <Route path='/teams' element={isAuth ? <Teams/> : <Login/>}/>
           <Route path='/Last-result' element={isAuth ? <LastResult/> : <Login/>}/>
           <Route path='/races' element={isAuth ? <Races/> : <Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/login' element={<Login/>}/>
           <Route path='/driver/:driverId' element={isAuth ? <Driver/> : <Login/>}/>
           <Route path='/team/:teamId' element={isAuth ? <Team/> : <Login/>}/>
           <Route path='/race/:raceId' element={isAuth ? <Race/> : <Login/>}/>
