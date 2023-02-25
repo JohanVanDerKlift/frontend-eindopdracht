@@ -6,20 +6,6 @@ aanmaken en inloggen.
 
 ![screenshot](src/assets/screenshot.png)
 
-## Server starten
-
-Voor deze applicatie wordt gebruik gemaakt van de Novi back-end. Deze server is meegeleverd in de map server. Het 
-handigste is om deze server te klonen met Intellij en vervolgens de dependencies te installeren met het commando:
-
-```shell
-npm install
-```
-Om de server te starten kan het volgende commando worden ingevoerd:
-
-```shell
-npm run json:server
-```
-Deze server zal dan draaien op [http://localhost:3000](http://localhost:3000/).
 
 ## API_key
 
@@ -42,6 +28,3 @@ Nadat de server is gestart kan het react project gestart worden in webstorm. Dit
 ```shell
 npm start
 ```
-
-Webstorm zal vragen of het project op een
-andere poort mag draaien gezien de server al draait op [http://localhost:3000](http://localhost:3000/).
