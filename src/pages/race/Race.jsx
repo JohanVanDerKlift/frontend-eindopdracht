@@ -9,8 +9,6 @@ function Race(props) {
   const {raceId} = useParams();
   console.log(raceId)
   const {data: race, loading, error} = useFetch({endpoint: 'races', keys: `?id=${raceId}`})
-  console.log(race);
-  console.log(localTime);
 
   return (
     <>

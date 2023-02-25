@@ -14,6 +14,7 @@ function Register(props) {
       username: data.username,
       email: data.email,
       password: data.password,
+      info: data.info,
       role: ["user"],
     }
     void signup(signupData);
@@ -34,6 +35,26 @@ function Register(props) {
       <h1 className="title">Register</h1>
       <div className="container form-container">
         <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
+          <label htmlFor="full-name-field">Full name
+          </label>
+          <input
+            type="text"
+            id="full-name-field"
+            placeholder="Full name..."
+            {...register("info", {
+              required: {
+                value: true,
+                message: 'Please specify your name'
+              },
+              maxLength: {
+                value: 40,
+                message: 'This field should contain a maximum of 40 characters'
+              },
+            })
+            }
+          />
+          {errors.info && <p>{errors.info.message}</p>}
+
           <label htmlFor="username-field">Username
           </label>
           <input
@@ -43,7 +64,7 @@ function Register(props) {
             {...register("username", {
               required: {
                 value: true,
-                message: 'You must specify a valid username'
+                message: 'Please specify a valid username'
               },
               minLength: {
                 value: 6,
@@ -67,7 +88,7 @@ function Register(props) {
             {...register("email", {
               required: {
                 value: true,
-                message: 'You must specify a valid email address'
+                message: 'Please specify a valid email address'
               },
               pattern: {
                 value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -85,11 +106,11 @@ function Register(props) {
             {...register("password", {
               required: {
                 value: true,
-                message: 'You must specify a valid password'
+                message: 'Please specify a valid password'
               },
               minLength: {
-                value: 6,
-                message: 'Password should be at least 6 characters long'
+                value: 8,
+                message: 'Password should be at least 8 characters long'
               }
             })}
           />

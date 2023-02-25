@@ -28,7 +28,7 @@ function LastResult(props) {
               </tr>
               </thead>
               <tbody>
-              <Result raceId={race[0].id}/>
+                <Result raceId={race[0].id}/>
               </tbody>
             </table>
           </div>

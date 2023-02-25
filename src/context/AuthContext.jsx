@@ -18,7 +18,7 @@ function AuthContextProvider({children}) {
     if (token) {
       const decoded = jwt_decode(token);
       if (token && Math.floor(Date.now()/1000) < decoded.exp) {
-        void fetchUser(token, decoded, '/profile');
+        void fetchUser(token, '/profile');
       }
     } else {
       setIsAuth({
@@ -50,6 +50,7 @@ function AuthContextProvider({children}) {
           id: response.id,
           username: response.data.username,
           email: response.data.email,
+          info: response.data.info,
           roles: response.data.roles,
         },
         status: 'done',

@@ -3,7 +3,7 @@ import {AuthContext} from "../../context/AuthContext";
 import './Profile.css';
 
 function Profile(props) {
-  const {user: {username, email, roles}} = useContext(AuthContext);
+  const {user: {username, email, info}} = useContext(AuthContext);
 
   return (
     <>
@@ -11,7 +11,6 @@ function Profile(props) {
       <div className="container profile-container">
         <p>Username: {username}</p>
         <p>Email: {email}</p>
-        <p>Role: {roles[0].name}</p>
       </div>
     </>
   );
