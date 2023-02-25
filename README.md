@@ -12,7 +12,8 @@ aanmaken en inloggen.
 In de hoofdmap moet een bestand worden aangemaakt genaamd '.env'. In dit bestand kan de content van '.env.dist' worden
 gekopieerd. Hierna moet nog de API key ingevuld worden. 
 
-Hiervoor mag de volgende key gebruikt worden: 867c047ec2f83e32d76136aeb25eb476
+Hiervoor mag de volgende key gebruikt worden: Deze API key is te vinden in het readme.pdf bestand welke is bijgevoegd in
+de eindopdracht folder
 
 ## Applicatie starten
 
